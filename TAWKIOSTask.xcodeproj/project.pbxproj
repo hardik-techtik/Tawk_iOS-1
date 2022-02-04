@@ -14,6 +14,7 @@
 		E11D7B1127AD24F900E4BFA5 /* UserListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D7B1027AD24F900E4BFA5 /* UserListTableCell.swift */; };
 		E11D7B1327AD25E100E4BFA5 /* UserListViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D7B1227AD25E100E4BFA5 /* UserListViewcontroller.swift */; };
 		E11D7B1527AD265800E4BFA5 /* ProfileViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D7B1427AD265800E4BFA5 /* ProfileViewcontroller.swift */; };
+		E11D7B1927AD4C0D00E4BFA5 /* CoreDataManageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D7B1827AD4C0D00E4BFA5 /* CoreDataManageObject.swift */; };
 		E1C614E027AD04D8008C4F4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1C614DE27AD04D8008C4F4D /* Main.storyboard */; };
 		E1C614E327AD04D8008C4F4D /* TAWKIOSTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1C614E127AD04D8008C4F4D /* TAWKIOSTask.xcdatamodeld */; };
 		E1C614E527AD04DB008C4F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1C614E427AD04DB008C4F4D /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		E11D7B1027AD24F900E4BFA5 /* UserListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableCell.swift; sourceTree = "<group>"; };
 		E11D7B1227AD25E100E4BFA5 /* UserListViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewcontroller.swift; sourceTree = "<group>"; };
 		E11D7B1427AD265800E4BFA5 /* ProfileViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewcontroller.swift; sourceTree = "<group>"; };
+		E11D7B1827AD4C0D00E4BFA5 /* CoreDataManageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManageObject.swift; sourceTree = "<group>"; };
 		E1C614D527AD04D8008C4F4D /* TAWKIOSTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TAWKIOSTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C614DF27AD04D8008C4F4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1C614E227AD04D8008C4F4D /* TAWKIOSTask.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TAWKIOSTask.xcdatamodel; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				E11D7B0C27AD243900E4BFA5 /* GeneralResponseModel.swift */,
 				E11D7B0E27AD24CC00E4BFA5 /* UserListModel.swift */,
+				E11D7B1827AD4C0D00E4BFA5 /* CoreDataManageObject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				E11D7B0927AD1FCA00E4BFA5 /* GlobalClass.swift in Sources */,
 				E1C614E327AD04D8008C4F4D /* TAWKIOSTask.xcdatamodeld in Sources */,
 				E1C6151427AD0BEC008C4F4D /* AppDelegate.swift in Sources */,
+				E11D7B1927AD4C0D00E4BFA5 /* CoreDataManageObject.swift in Sources */,
 				E11D7B0B27AD240900E4BFA5 /* Utilities.swift in Sources */,
 				E1C6151B27AD0E2E008C4F4D /* Router.swift in Sources */,
 				E1C6151527AD0BEC008C4F4D /* SceneDelegate.swift in Sources */,
