@@ -15,6 +15,7 @@
 		E11D7B1327AD25E100E4BFA5 /* UserListViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D7B1227AD25E100E4BFA5 /* UserListViewcontroller.swift */; };
 		E11D7B1527AD265800E4BFA5 /* ProfileViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D7B1427AD265800E4BFA5 /* ProfileViewcontroller.swift */; };
 		E11D7B1927AD4C0D00E4BFA5 /* CoreDataManageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D7B1827AD4C0D00E4BFA5 /* CoreDataManageObject.swift */; };
+		E11D7B1C27AD4E1D00E4BFA5 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D7B1B27AD4E1D00E4BFA5 /* UserListViewModel.swift */; };
 		E1C614E027AD04D8008C4F4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1C614DE27AD04D8008C4F4D /* Main.storyboard */; };
 		E1C614E327AD04D8008C4F4D /* TAWKIOSTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1C614E127AD04D8008C4F4D /* TAWKIOSTask.xcdatamodeld */; };
 		E1C614E527AD04DB008C4F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1C614E427AD04DB008C4F4D /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		E11D7B1227AD25E100E4BFA5 /* UserListViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewcontroller.swift; sourceTree = "<group>"; };
 		E11D7B1427AD265800E4BFA5 /* ProfileViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewcontroller.swift; sourceTree = "<group>"; };
 		E11D7B1827AD4C0D00E4BFA5 /* CoreDataManageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManageObject.swift; sourceTree = "<group>"; };
+		E11D7B1B27AD4E1D00E4BFA5 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		E1C614D527AD04D8008C4F4D /* TAWKIOSTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TAWKIOSTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C614DF27AD04D8008C4F4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1C614E227AD04D8008C4F4D /* TAWKIOSTask.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TAWKIOSTask.xcdatamodel; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E11D7B1A27AD4E0600E4BFA5 /* Viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				E11D7B1B27AD4E1D00E4BFA5 /* UserListViewModel.swift */,
+			);
+			path = Viewmodel;
+			sourceTree = "<group>";
+		};
 		E1C614CC27AD04D8008C4F4D = {
 			isa = PBXGroup;
 			children = (
@@ -125,7 +135,7 @@
 				E1C6150E27AD0868008C4F4D /* Model */,
 				E1C6150C27AD0868008C4F4D /* View */,
 				E1C6150D27AD0868008C4F4D /* Controller */,
-				E1C6150B27AD0868008C4F4D /* ViewModel */,
+				E11D7B1A27AD4E0600E4BFA5 /* Viewmodel */,
 				E1C6151627AD0DB6008C4F4D /* HelperClass */,
 				E1C614E427AD04DB008C4F4D /* Assets.xcassets */,
 				E1C614E627AD04DB008C4F4D /* LaunchScreen.storyboard */,
@@ -150,13 +160,6 @@
 				E1C614FE27AD04DB008C4F4D /* TAWKIOSTaskUITestsLaunchTests.swift */,
 			);
 			path = TAWKIOSTaskUITests;
-			sourceTree = "<group>";
-		};
-		E1C6150B27AD0868008C4F4D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E1C6150C27AD0868008C4F4D /* View */ = {
@@ -367,6 +370,7 @@
 				E1C6151D27AD0E3E008C4F4D /* ErrorType.swift in Sources */,
 				E11D7B1327AD25E100E4BFA5 /* UserListViewcontroller.swift in Sources */,
 				E11D7B0F27AD24CC00E4BFA5 /* UserListModel.swift in Sources */,
+				E11D7B1C27AD4E1D00E4BFA5 /* UserListViewModel.swift in Sources */,
 				E11D7B1527AD265800E4BFA5 /* ProfileViewcontroller.swift in Sources */,
 				E11D7B0D27AD243900E4BFA5 /* GeneralResponseModel.swift in Sources */,
 				E11D7B1127AD24F900E4BFA5 /* UserListTableCell.swift in Sources */,

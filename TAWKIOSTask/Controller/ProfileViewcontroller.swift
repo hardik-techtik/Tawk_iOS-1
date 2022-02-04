@@ -12,7 +12,7 @@ import UIKit
 class ProfileViewcontroller: UIViewController {
     
     // MARK: -  IBOutlets 
-    
+                  
     @IBOutlet var imgUser : UIImageView!
     @IBOutlet var lblFollowers : UILabel!
     @IBOutlet var lblNavTitle : UILabel!
