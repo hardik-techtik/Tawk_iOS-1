@@ -51,21 +51,26 @@ class Network {
         if Reachability.isConnectedToNetwork(){
             print("Internet Connection Available!")
         do {
+            let dispatchGroup = DispatchGroup()
+            dispatchGroup.enter()
             let task = try URLSession.shared.dataTask(with: router.request()) { (data, urlResponse, error) in
                 DispatchQueue.main.async {
-                    
                     if error != nil {
                         completion(Result.failure(.noInternetConnection))
                         showMessage(text: Messages.noInternetConnection)
                         NotificationCenter.default.post(name: Notification.Name("InternetConnectionError"), object: nil, userInfo: nil)
-
                         return
                     }else{
+                        dispatchGroup.leave()
                         if data != nil {
                             self.printResult(result: data!)
                         }else{
                             showMessage(text: Messages.somethingwentwrong)
                         }
+                    }
+                    
+                    dispatchGroup.notify(queue: DispatchQueue.main) {
+                        print("Task execution is completed")
                     }
                     
                     guard let statusCode = urlResponse?.getStatusCode(), (200...299).contains(statusCode) else {
