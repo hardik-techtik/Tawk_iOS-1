@@ -12,7 +12,6 @@ import UIKit
 class ProfileViewcontroller: UIViewController {
     
     // MARK: -  IBOutlets 
-                  
     @IBOutlet var imgUser : UIImageView!
     @IBOutlet var lblFollowers : UILabel!
     @IBOutlet var lblNavTitle : UILabel!
@@ -22,12 +21,9 @@ class ProfileViewcontroller: UIViewController {
     @IBOutlet var lblBlog : UILabel!
     @IBOutlet var txtNotes : UITextView!
 
-    
     // MARK: -  Variables 
     var strName = ""
     var objProfile : UserProfileModel?
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +38,21 @@ class ProfileViewcontroller: UIViewController {
         lblName.text = ""
         txtNotes.text = ""
         
+        lblFollowers.layer.borderWidth = 1.0
+        lblFollowers.layer.borderColor = UIColor.orange.cgColor
+        lblFollowers.layer.cornerRadius = 5
+        lblFollowers.layer.masksToBounds = true
+        
+        lblFollowing.layer.borderWidth = 1.0
+        lblFollowing.layer.borderColor = UIColor.orange.cgColor
+        lblFollowing.layer.cornerRadius = 5
+        lblFollowing.layer.masksToBounds = true
         
         lblNavTitle.text = strName
-        txtNotes.layer.borderWidth = 0.5
-        txtNotes.layer.borderColor = UIColor.lightGray.cgColor
-        txtNotes.layer.cornerRadius = 4
+        
+        txtNotes.layer.borderWidth = 1.0
+        txtNotes.layer.borderColor = UIColor.orange.cgColor
+        txtNotes.layer.cornerRadius = 5
         txtNotes.layer.masksToBounds = true
         
         NotificationCenter.default.addObserver(

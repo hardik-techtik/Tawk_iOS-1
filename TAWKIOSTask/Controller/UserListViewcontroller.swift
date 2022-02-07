@@ -15,7 +15,7 @@ class UserListViewcontroller: UIViewController {
     // MARK: -  IBOutlets 
     @IBOutlet var tblUserList : UITableView!
     @IBOutlet var searchBar : UISearchBar!
-    
+    @IBOutlet var headerView : UIView!
     let userlistViewModelObj = UserListViewModel()
     
     var currentPage : Int = 1
@@ -23,10 +23,11 @@ class UserListViewcontroller: UIViewController {
     var totalPageSize = 10
     var isSearchActive = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        headerView.dropShadow()
         
         tblUserList.estimatedRowHeight = 100
         tblUserList.rowHeight = UITableView.automaticDimension
@@ -71,7 +72,6 @@ class UserListViewcontroller: UIViewController {
                     return
                 }
 
-               
                 if page == 1 {
                     self.userlistViewModelObj.arrUserList.removeAll()
 //                    let arrData = self.removeDuplicateElements(posts: res)
@@ -101,10 +101,6 @@ class UserListViewcontroller: UIViewController {
                 }
         }
     }
-    
-    
-    
-    
     
     func getListFromServer(_ pageNumber: Int){
         self.isLoadingList = false
@@ -151,8 +147,7 @@ extension UserListViewcontroller : UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserListTableCell", for: indexPath) as! UserListTableCell
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserListNoteTableCell", for: indexPath) as! UserListNoteTableCell
         cell.lblName.text = ""
         cell.lblDetails.text = ""
         cell.imgUser.image = nil
@@ -163,12 +158,10 @@ extension UserListViewcontroller : UITableViewDelegate, UITableViewDataSource
         }
         
         cell.selectionStyle = .none
-        
         return cell
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
         if Reachability.isConnectedToNetwork(){
             //Pagination logic here
             if !(indexPath.row + 1 < self.userlistViewModelObj.arrUserList.count) {
@@ -183,10 +176,8 @@ extension UserListViewcontroller : UITableViewDelegate, UITableViewDataSource
         let pVC = Utilities.viewController(name: "ProfileViewcontroller", onStoryBoared: "Main") as! ProfileViewcontroller
         pVC.strName = obj.login ?? ""
         self.navigationController?.pushViewController(pVC, animated: true)
-
     }
 }
-
 
 //MARK:- UIsearch bar delegate methods
 extension UserListViewcontroller : UISearchBarDelegate
@@ -216,10 +207,8 @@ extension UserListViewcontroller : UISearchBarDelegate
                 }
                 return false
             })
-
             tblUserList.reloadData()
     }
-    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.view.endEditing(true)
@@ -228,7 +217,5 @@ extension UserListViewcontroller : UISearchBarDelegate
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.view.endEditing(true)
     }
-
-
 }
 
