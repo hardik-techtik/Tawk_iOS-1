@@ -1,15 +1,15 @@
 //
-//  UserListTableCell.swift
+//  UserListAvatarTableCell.swift
 //  TAWKIOSTask
 //
-//  Created by Hardik on 04/02/22.
+//  Created by Hardik on 07/02/22.
 //
 
 import Foundation
 import UIKit
 import CoreData
 
-class UserListTableCell: UITableViewCell {
+class UserListAvatarTableCell: UITableViewCell {
 
     @IBOutlet var imgUser : UIImageView!
     @IBOutlet var lblName : UILabel!

@@ -121,3 +121,13 @@ extension FileManager {
     return documentsDirectory
  }
 }
+
+extension UIView {
+
+    func dropShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.1
+        layer.shadowOffset = CGSize.zero
+        layer.shadowRadius = 10
+    }
+}

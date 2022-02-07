@@ -15,17 +15,18 @@ class UserListViewcontroller: UIViewController {
     // MARK: -  IBOutlets 
     @IBOutlet var tblUserList : UITableView!
     @IBOutlet var searchBar : UISearchBar!
-    
+    @IBOutlet var headerView : UIView!
     let userlistViewModelObj = UserListViewModel()
     
     var currentPage : Int = 0
     var isLoadingList : Bool = false
     var isSearchActive = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        headerView.dropShadow()
         
         tblUserList.estimatedRowHeight = 100
         tblUserList.rowHeight = UITableView.automaticDimension
@@ -64,6 +65,7 @@ class UserListViewcontroller: UIViewController {
             DispatchQueue.main.async {
                 self.tblUserList.reloadData()
             }
+
         }
     }
     
@@ -105,8 +107,7 @@ extension UserListViewcontroller : UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserListTableCell", for: indexPath) as! UserListTableCell
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserListNoteTableCell", for: indexPath) as! UserListNoteTableCell
         cell.lblName.text = ""
         cell.lblDetails.text = ""
         cell.imgUser.image = nil
@@ -117,7 +118,6 @@ extension UserListViewcontroller : UITableViewDelegate, UITableViewDataSource
         }
         
         cell.selectionStyle = .none
-        
         return cell
     }
 
@@ -142,7 +142,6 @@ extension UserListViewcontroller : UITableViewDelegate, UITableViewDataSource
             self.navigationController?.pushViewController(pVC, animated: true)
     }
 }
-
 
 //MARK:- UIsearch bar delegate methods
 extension UserListViewcontroller : UISearchBarDelegate
@@ -172,10 +171,8 @@ extension UserListViewcontroller : UISearchBarDelegate
                 }
                 return false
             })
-
             tblUserList.reloadData()
     }
-    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.view.endEditing(true)
@@ -184,7 +181,5 @@ extension UserListViewcontroller : UISearchBarDelegate
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.view.endEditing(true)
     }
-
-
 }
 
