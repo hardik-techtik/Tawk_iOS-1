@@ -15,7 +15,8 @@ class UserListViewModel {
     var arrUserList = [UserListModel]()
     var arrFilteredData = [UserListModel]()
     
-    
+    var totalPageSize = 15
+
     
     func removeDuplicateElements(posts: [UserListModel]) -> [UserListModel] {
         var uniquePosts = [UserListModel]()
@@ -26,6 +27,66 @@ class UserListViewModel {
         }
         return uniquePosts
     }
+    func getDataWhileOffline() -> Bool {
+        let arrList = self.loadUserList()
+        for i in arrList {
+            var obj = UserListModel()
+            obj.login = i.login
+            obj.type = i.type
+            obj.node_id = i.node_id
+            obj.avatar_url = nil
+            obj.imgData = i.avatar_url
+            self.arrUserList.append(obj)
+        }
+        let uniqueArray = self.removeDuplicateElements(posts: self.arrUserList)
+        self.arrUserList = uniqueArray
+        self.arrFilteredData = uniqueArray
+        
+        return true
+    }
+    
+    
+    func getUserListFromAPI(page:Int,completionHandler: @escaping ((_ response : Bool) -> Void)) {
+            showLoader()
+            let param : String = "\(page)&per_page=\(totalPageSize)"
+            Network.shared.request(router: .getUserList(body: param)) { [self] (result: Result<[UserListModel], ErrorType>) in
+                hideLoader()
+                    guard let res = try? result.get() else {
+                        return
+                    }
+                    if res.count != 0 {
+                        if page == 1 {
+                            self.arrUserList.removeAll()
+        //                    let arrData = self.removeDuplicateElements(posts: res)
+                            arrUserList = res
+                            arrFilteredData = res
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                self.storeOfflineData()
+                                completionHandler(true)
+                            }
+                        }else{
+                            if res.count != 0 {
+                                for i in res{
+                                    print("i.login------\(String(describing: i.login))")
+                                    self.arrUserList.append(i)
+                                    self.arrFilteredData.append(i)
+                                }
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                    self.storeOfflineData()
+                                    completionHandler(true)
+                                }
+                            }else{
+                                showMessage(text: Messages.somethingwentwrong)
+                                completionHandler(true)
+                            }
+                        }
+                        
+                    } else {
+                        showMessage(text: Messages.somethingwentwrong)
+                        completionHandler(false)
+                    }
+            }
+        }
     
 }
 
@@ -58,8 +119,7 @@ extension UserListViewModel {
     }
     
     // MARK: -  Save data to coredata database 
-    func saveOfflineToCoreData(data:Data, login:String, type: String,node: String)
-    {
+    func saveOfflineToCoreData(data:Data, login:String, type: String,node: String) {
         let managedContext = objAppDelegate.persistentContainer.viewContext
         let user = Userlist(context: managedContext)
         user.login = login

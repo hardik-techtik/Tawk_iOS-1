@@ -55,7 +55,12 @@ class ProfileViewcontroller: UIViewController {
             name: NSNotification.Name(rawValue: "InternetConnectionError"),
                                    object: nil)
 
-        callProfileAPI()
+        
+        if Reachability.isConnectedToNetwork(){
+            callProfileAPI()
+        }else{
+            loadOfflineData()
+        }
     }
     
     //MARK: - User list api call -
